@@ -1,19 +1,17 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 # @PROJECT_NAME :hwgz_pytest 
-# @FileName  :test_One.py
+# @FileName  :test_One2.py
 # @Time      :2021/2/5 15:51
 # @Author    :adiao
 import pytest
 
-# content of test_sample.py
-def func(x):
-    return x + 1
+@pytest.mark.run(order = 2)
+def test_foo():
+    print("test_foo")
+    # assert True
 
-
-def test_answer():
-    assert func(3) == 4
-
-@pytest.mark.parametrize("a,b",[(10,20),(10,40)])
-def test_param(self,a,b):
-    print(a + b)
+@pytest.mark.run(order = 1)
+def test_bar():
+    print("test_bar")
+    # assert True
